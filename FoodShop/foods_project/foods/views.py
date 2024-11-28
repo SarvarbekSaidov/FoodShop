@@ -29,3 +29,5 @@ class CommentViewSet(ModelViewSet):
     search_fields = ['content', 'author__username']
     ordering_fields = ['id', 'created_at']
 
+
+
