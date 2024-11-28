@@ -1,10 +1,13 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
-from .views import FoodTypeViewSet, FoodViewSet, CommentViewSet
+from .views import (
+    FoodTypeListView, FoodTypeDetailView, FoodListView, FoodDetailView, CommentListView, CommentDetailView
+)
 
-router = DefaultRouter()
-router.register('food-types', FoodTypeViewSet, basename='foodtype')
-router.register('foods', FoodViewSet, basename='food')
-router.register('comments', CommentViewSet, basename='comment')
-
-urlpatterns = router.urls
+urlpatterns = [
+    path('food-types/', FoodTypeListView.as_view(), name='foodtype-list'),
+    path('food-types/<int:pk>/', FoodTypeDetailView.as_view(), name='foodtype-detail'),
+    path('foods/', FoodListView.as_view(), name='food-list'),
+    path('foods/<int:pk>/', FoodDetailView.as_view(), name='food-detail'),
+    path('comments/', CommentListView.as_view(), name='comment-list'),
+    path('comments/<int:pk>/', CommentDetailView.as_view(), name='comment-detail'),
+]
