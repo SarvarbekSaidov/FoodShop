@@ -11,6 +11,8 @@ class FoodTypeListView(generics.ListCreateAPIView):
 class FoodTypeDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = FoodType.objects.all()
     serializer_class = FoodTypeSerializer
+    permission_classes = [IsAuthorOrReadOnly]
+
 
 class FoodListView(generics.ListCreateAPIView):
     queryset = Food.objects.all()
@@ -20,6 +22,9 @@ class FoodListView(generics.ListCreateAPIView):
 class FoodDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Food.objects.all()
     serializer_class = FoodSerializer
+    permission_classes = [IsAuthorOrReadOnly]
+
+
 
 class CommentListView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
@@ -28,3 +33,5 @@ class CommentListView(generics.ListCreateAPIView):
 class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [IsAuthorOrReadOnly]
+
