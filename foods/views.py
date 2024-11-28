@@ -20,6 +20,10 @@ class FoodListView(generics.ListCreateAPIView):
 class FoodDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Food.objects.all()
     serializer_class = FoodSerializer
+<<<<<<< Updated upstream
+=======
+    permission_classes = [IsAuthorOrReadOnly]
+>>>>>>> Stashed changes
 
 class CommentListView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
