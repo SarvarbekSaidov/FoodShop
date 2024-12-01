@@ -1,9 +1,9 @@
 from rest_framework import routers
-from .views import FoodTypeListView, FoodListView, CommentAPIViewSet
+from .views import FoodTypeViewSet, FoodViewSet, CommentViewSet
 
 router = routers.DefaultRouter()
-router.register('food-types', FoodTypeListView, basename='foodtype')
-router.register('foods', FoodListView, basename='food')
-router.register('comments', CommentAPIViewSet, basename='comment')
+router.register('food-types', FoodTypeViewSet, basename='foodtype')
+router.register('foods', FoodViewSet, basename='food')
+router.register('comments', CommentViewSet, basename='comment')
 
 urlpatterns = router.urls
